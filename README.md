@@ -135,7 +135,7 @@ EXAMPLES
 Run `ws-get update` on demand to update `ws` itself to the latest version.
 
 ```bash
-curl -sL https://git.io/ws-get | bash -s -- update -q
+curl -sL https://git.io/ws-get | bash -s -- update -q -y
 ```
 
 `ws-get update -y` skips the confirmation prompt.

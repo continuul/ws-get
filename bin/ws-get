@@ -165,14 +165,25 @@ EOF
   echo "-- ws successfully uninstalled from '${wsRepoDir}'."
 } >&2
 
+#
+# Output version.
+#
+
+function Show-Version () {
+  echo "$VERSION" && exit 0
+}
+
 function Parse-Options () {
   local OPTIND
-  while getopts ':qy' opt; do
+  while getopts ':qvy-:' opt; do
     [[ $opt == '?' ]] && DieSyntax "Unknown option: -$OPTARG"
     [[ $opt == ':' ]] && DieSyntax "Option -$OPTARG is missing its argument."
     case "$opt" in
       q)
         quiet=1
+        ;;
+      v | version)
+        Show-Version
         ;;
       y)
         skipPrompts=1
